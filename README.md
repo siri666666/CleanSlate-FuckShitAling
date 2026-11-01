@@ -2,7 +2,7 @@
 
 开源版设备标识重置 + 应用数据清理工具（KernelSU / APatch / Magisk 模块）。
 
-行为基线来自对闭源 **aling** 脚本（T-Protector 1.0.25 壳，TG @Whitelist520 分发）
+行为基线来自对某 T-Protector 加壳闭源工具
 的完整行为逆向：清理边界、重置流程、命令模板均按 2026-11-01 的标记实验与
 内存取证实测还原。区别是：本版无壳、无卡密、无联网、无遥测，代码全部可审计。
 
@@ -28,7 +28,7 @@
    活系统上 SettingsProvider 被删崩（`Failed transaction`），后续 android_id/UUID
    写入全部**静默失败**——实测在 Android 16 上原版的标识重置从不生效。
    本版：先写全部 settings，最后删 ssaid。
-2. **[bug fix] serialno 模块**：原版建的 `ALING_IMEI/ALING_Serialno` 目录缺
+2. **[bug fix] serialno 模块**：原版建的临时模块目录缺
    `module.prop`，被 ksud 即时清理，从未产出过任何文件。本版模块带合法
    `module.prop`，`system.prop` 覆盖 `ro.serialno`/`ro.boot.serialno`，重启后真实生效。
 3. **IMEI**：RIL 层上报不受 prop 控制，本版不做假承诺（原版声称随机 IMEI，

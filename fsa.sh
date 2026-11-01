@@ -2,7 +2,7 @@
 # ============================================================================
 # CleanSlate-FuckShitAling — 开源设备标识重置 + 应用数据清理 (KSU/APatch/Magisk)
 # ----------------------------------------------------------------------------
-# 行为基线来自对闭源 aling 脚本（T-Protector 1.0.25 壳）的行为逆向：
+# 行为基线来自对某 T-Protector 加壳闭源工具的行为逆向：
 #   清理边界 / 重置流程 / 模板命令均按 2026-11-01 标记实验与内存取证实测还原。
 # 修正原版两处缺陷：
 #   [fix1] 原版先删 settings_ssaid.xml 再写 settings，SettingsProvider 被删崩
@@ -170,7 +170,7 @@ do_reset() {
 
 # ---- serialno 持久模块（fix2：带合法 module.prop，ksud 不会剪） --------------
 do_props() {
-  M=/data/adb/modules/aling_fsa_props
+  M=/data/adb/modules/cleanslate_props
   SN=$(new_serial)
   say "serialno -> $SN"
   if [ "$DRY" = "1" ]; then
@@ -179,8 +179,8 @@ do_props() {
   fi
   mkdir -p "$M"
   cat > "$M/module.prop" <<EOF
-id=aling_fsa_props
-name=CleanSlate props
+id=cleanslate_props
+name=CleanSlate-FuckShitAling props
 version=v1.0.0
 versionCode=1
 author=fsa

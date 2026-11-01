@@ -3,4 +3,4 @@ name=CleanSlate-FuckShitAling
 version=v1.0.0
 versionCode=1
 author=siri666666
-description=CleanSlate: open-source device identifier reset & app data cleaner for rooted Android (KSU/APatch/Magisk). Behavior-derived from analysis of the closed-source "aling" tool (T-Protector packed). No network. No card key. No telemetry. MIT licensed.
+description=CleanSlate: open-source device identifier reset & app data cleaner for rooted Android (KSU/APatch/Magisk). Behavior-derived from analysis of a closed-source T-Protector-packed tool. No network. No card key. No telemetry. MIT licensed.
